@@ -1,13 +1,16 @@
+export const metadata = {
+  title: 'คนรักปลาสวยงาม',
+};
+
+import Navbar from '@/components/Navbar';
 import React from 'react';
-import Navbar from '../../component/Navbar';
 
-
-const Profile= () => {
+const Profile = () => {
   return (
-  <>
-    <Navbar/>
-    <a>I am mond</a>
-  </>
+    <>
+      <Navbar />
+      <a>I am Batman ?</a>
+    </>
   );
 };
 

@@ -1,15 +1,17 @@
+export const metadata = {
+  title: 'ร้านปลาสวยงาม',
+};
+
+import Navbar from '@/components/Navbar';
 import React from 'react';
-import Navbar from '../../component/Navbar';
 
 const About = () => {
   return (
-  <>
-    <Navbar/>
-    <a>I dont know</a>
-  </>
+    <>
+      <Navbar />
+      <a>About me ?</a>
+    </>
   );
 };
 
 export default About;
-
-
