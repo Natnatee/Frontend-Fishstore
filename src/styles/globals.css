@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+nav a {
+    color: white !important; /* Force the color to be white */
+    text-decoration: none !important; /* Force no underline */
+  }
+  
+  nav a:hover {
+    color: gray !important; /* Change color on hover */
+  }

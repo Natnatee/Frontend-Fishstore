@@ -1,6 +1,6 @@
 // src/components/LoginRegister.tsx
 "use client"
-import ImageAndSwitchButton from '@/components/login&regis/ImageAndSwitchButton';
+import ImageAndSwitchButton from '@/app/login/components/ImageAndSwitchButton';
 import Navbar from '@/components/Navbar';
 import React, { useState } from 'react';
 

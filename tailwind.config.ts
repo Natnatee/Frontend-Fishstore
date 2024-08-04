@@ -2,7 +2,9 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}"
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    // "./pages/**/*.{js,ts,jsx,tsx}", // รวมไฟล์ในโฟลเดอร์ pages
+    // "./components/**/*.{js,ts,jsx,tsx}", // รวมไฟล์ในโฟลเดอร์ components
   ],
   theme: {
     extend: {

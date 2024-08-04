@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFish} from "@fortawesome/free-solid-svg-icons";
 
 interface ProductCardProps {
   price: number;
@@ -49,26 +49,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ price, name, description, ima
                         </p>
                         <p>In stock : {quantity}</p>
                     </div>
-                    {status === "public" ? (
+                    {status === "Public" ? (
                     <div className="body-footer absolute inline-block text-center w-full top-24 h-[104px] mt-3 p-0 transition-all duration-300 ease-in-out hover:top-20 hover:h-[120px]">
-                        <button className="btn btn-default btn-block">
-                        <span className="fa fa-cart-plus fa-lg" aria-hidden="true"></span> Add to Cart 
+                        <button className="btn btn-default btn-block hover:bg-cyan-300">
+                        <span className="fa fa-cart-plus fa-lg " aria-hidden="true"></span> Add to Cart 
                         </button>
                         <div className="btn-group" role="group">
-                        <button className="btn btn-default btn-xs">
-                            fa-solid fa-fish
+                        <button className="btn btn-default btn-xs d-flex gap-1 hover:bg-cyan-300">
+                             Like<span><FontAwesomeIcon icon={faFish} className=' h-5'/> </span>
                         </button>
-                        <button className="btn btn-default btn-xs">
+                        <button className="btn btn-default btn-xs hover:bg-cyan-300">
                             Detail <span className="fa fa-search" aria-hidden="true"></span>
                         </button>
                         </div>
                     </div>
                     ) : status === "pending" ? (
-                    <h2 className=' text-red-500 body-footer absolute inline-block top-24 text-center w-full'>Coming Soon !!</h2>
+                    <h2 className=' text-red-500 body-footer absolute inline-block top-24 text-center w-full text-3xl'>Coming Soon !!</h2>
                     ) : (
                     <span className='body-footer absolute inline-block top-24 w-full'>
-                        <h2 className=' text-red-500 text-center '>Sold Out</h2>
-                        <h6 className=' text-center '>Sorry we will restock soon</h6>
+                        <h2 className=' text-red-500 text-center text-3xl'>Sold Out</h2>
+                        <h6 className=' text-center '>Sorry, We&apos;ll restock soon</h6>
                     </span>
                     )}
 
