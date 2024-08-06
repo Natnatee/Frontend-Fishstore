@@ -14,6 +14,7 @@ interface ProductCardProps {
   image: string;
   quantity: number;
   status: string;
+  id : string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -23,6 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   image,
   quantity,
   status,
+  id,
 }) => {
   const { addToCart } = useCart(); // ใช้ useCart เพื่อเข้าถึง Context
 
@@ -67,7 +69,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
               <button
                 className='btn btn-default btn-block hover:bg-cyan-300'
                 onClick={() =>
-                  addToCart({ name, price, description, image, quantity, status })
+                  addToCart({ name, price, description, image, quantity, status, id})
                 }
               >
                 <span className='fa fa-cart-plus fa-lg ' aria-hidden='true'></span>{' '}
@@ -99,6 +101,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </div>
     </div>
   );
-};
+}
 
 export default ProductCard;

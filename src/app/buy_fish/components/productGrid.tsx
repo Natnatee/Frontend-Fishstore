@@ -1,5 +1,6 @@
-// src/components/buy_fish/productGrid.tsx// Use the "use client" directive for client-side rendering
-"use client"
+// src/components/buy_fish/productGrid.tsx
+"use client";
+
 import React from 'react';
 import ProductCard from './productCard'; // Import the ProductCard component
 
@@ -11,6 +12,7 @@ interface Product {
   image: string;
   quantity: number;
   status: string;
+  id: string; // Ensure id is unique for each product
 }
 
 // Define the props interface for the ProductGrid component
@@ -25,15 +27,16 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
       <div id="content" className="min-h-[400px] inline-block">
         <div className="product-grid w-full text-red-500 bg-[#eeeded] float-left">
           {/* Map through products and render a ProductCard for each */}
-          {products.map((product, index) => (
+          {products.map((product) => (
             <ProductCard
-              key={index}
+              key={product.id} // Use product.id as the unique key
               price={product.price}
               name={product.name}
               description={product.description}
               image={product.image}
               quantity={product.quantity}
               status={product.status}
+              id={product.id}
             />
           ))}
         </div>

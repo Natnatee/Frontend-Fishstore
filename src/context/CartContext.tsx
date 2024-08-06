@@ -10,6 +10,7 @@ interface OrderItem {
   image: string;
   quantity: number;
   status: string;
+  id: string;
 }
 
 // กำหนดชนิดข้อมูลสำหรับ CartContext
@@ -33,7 +34,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
   const addToCart = (item: OrderItem) => {
     // ตรวจสอบว่า item มีอยู่ใน order หรือไม่
     const existingItemIndex = order.findIndex(
-      (orderItem) => orderItem.name === item.name
+      (orderItem) => orderItem.id === item.id
     );
 
     if (existingItemIndex >= 0) {
@@ -50,7 +51,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
   // ฟังก์ชันลดจำนวนสินค้าในตะกร้า
   const removeFromCart = (item: OrderItem) => {
     const existingItemIndex = order.findIndex(
-      (orderItem) => orderItem.name === item.name
+      (orderItem) => orderItem.id === item.id
     );
 
     if (existingItemIndex >= 0) {

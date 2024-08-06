@@ -12,6 +12,7 @@ interface Product {
   image: string;
   quantity: number;
   status: string;
+  id: string;
 }
 
 // Define the metadata for the page
