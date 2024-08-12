@@ -4,10 +4,23 @@
 
 import { useCart } from '@/context/CartContext';
 import React from 'react';
+import { createOrder } from './OrderService';
  // ปรับตามตำแหน่งของไฟล์ CartContext
 
 const Cart: React.FC = () => {
   const { order, addToCart, removeFromCart } = useCart(); // ใช้ useCart เพื่อเข้าถึง Context
+
+  const handleBuy = async () => {
+    const userId = '26ff21d0-302b-452a-98f4-fab756cb4261'; // แทนที่ด้วย userId จริง
+
+    try {
+      const createdOrder = await createOrder(userId, order);
+      console.log('Order created:', createdOrder);
+      // ทำสิ่งที่ต้องการหลังจากสร้างคำสั่งซื้อเสร็จ
+    } catch (error) {
+      console.error('Failed to create order:', error);
+    }
+  };
 
   return (
     <div className='min-h-60 w-[410px] border-4 border-red-600 rounded-3xl fixed right-10 top-28 flex flex-col items-center'>
@@ -40,7 +53,7 @@ const Cart: React.FC = () => {
           </div>
         ))}
       </div>
-      <button className='btn bg-sky-500'>Buy</button>
+      <button className="btn bg-sky-500" onClick={handleBuy}>Buy</button>
     </div>
   );
 };

@@ -23,25 +23,28 @@ interface ProductGridProps {
 // Define the ProductGrid component
 const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
   return (
-    <div id="container" className="bg-black w-[980px] mx-auto mt-12 mb-2 text-left rounded-lg shadow-md">
-      <div id="content" className="min-h-[400px] inline-block">
-        <div className="product-grid w-full text-red-500 bg-[#eeeded] float-left">
-          {/* Map through products and render a ProductCard for each */}
-          {products.map((product) => (
-            <ProductCard
-              key={product.id} // Use product.id as the unique key
-              price={product.price}
-              name={product.name}
-              description={product.description}
-              image={product.image}
-              quantity={product.quantity}
-              status={product.status}
-              id={product.id}
-            />
-          ))}
-        </div>
-      </div>
+<div
+  id="container"
+  className=" w-[980px] mx-auto mt-12 mb-2 text-left rounded-lg shadow-md"
+>
+  <div id="content" className="min-h-[400px] inline-block">
+    <div className="product-grid grid grid-cols-1 3xl:grid-cols-3 gap-4 w-full text-red-500 bg-[#eeeded]">
+      {/* Map through products and render a ProductCard for each */}
+      {products.map((product) => (
+        <ProductCard
+          key={product.id} // Use product.id as the unique key
+          price={product.price}
+          name={product.name}
+          description={product.description}
+          image={product.image}
+          quantity={product.quantity}
+          status={product.status}
+          id={product.id}
+        />
+      ))}
     </div>
+  </div>
+</div>
   );
 };
 
