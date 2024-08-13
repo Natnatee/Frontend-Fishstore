@@ -2,7 +2,7 @@ import React from 'react';
 import ProductGrid from '@/app/buy_fish/components/productGrid'; // Import the ProductGrid component
 import Navbar from '@/components/Navbar'; // Import Navbar component
 import axiosInstance from '@/lib/axiosInstance'; // Import axios instance
-import Cart from '@/components/Cart';
+import Cart from '@/components/cart';
 
 // Define the Product interface
 interface Product {
