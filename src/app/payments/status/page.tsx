@@ -1,11 +1,9 @@
-// app/payment/status/page.tsx
-
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-const StatusPayment: React.FC = () => {
+const StatusPaymentContent: React.FC = () => {
 	const searchParams = useSearchParams();
 	const status = searchParams.get("status");
 
@@ -22,6 +20,14 @@ const StatusPayment: React.FC = () => {
 				</p>
 			)}
 		</div>
+	);
+};
+
+const StatusPayment: React.FC = () => {
+	return (
+		<Suspense fallback={<div>Loading...</div>}>
+			<StatusPaymentContent />
+		</Suspense>
 	);
 };
 
