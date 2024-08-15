@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import Image from "next/image";
 
 const Cart: React.FC = () => {
 	const { order, addToCart, removeFromCart, clearCart } = useCart();
@@ -70,7 +69,7 @@ const Cart: React.FC = () => {
 			{qrCodeURI ? (
 				<div>
 					<h3>Scan to Pay</h3>
-					<Image src={qrCodeURI} alt="QR Code" width={200} height={200} />
+					<img src={qrCodeURI} alt="QR Code" />
 				</div>
 			) : (
 				<button
