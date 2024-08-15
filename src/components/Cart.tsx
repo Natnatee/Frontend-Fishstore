@@ -1,45 +1,31 @@
-import React, { useState } from "react";
+"use client";
+
 import { useCart } from "@/context/CartContext";
-import { useRouter } from "next/navigation";
-import axios from "axios";
+import React from "react";
+import { createOrder } from "./OrderService";
+// ปรับตามตำแหน่งของไฟล์ CartContext
 
 const Cart: React.FC = () => {
-	const { order, addToCart, removeFromCart, clearCart } = useCart();
-	const [qrCodeURI, setQRCodeURI] = useState<string | null>(null);
-	const [isLoading, setIsLoading] = useState(false);
-	const [errorMessage, setErrorMessage] = useState<string | null>(null);
-	const router = useRouter();
+	const { order, addToCart, removeFromCart } = useCart(); // ใช้ useCart เพื่อเข้าถึง Context
 
 	const handleBuy = async () => {
-		setIsLoading(true);
-		setErrorMessage(null);
+		const userId = "26ff21d0-302b-452a-98f4-fab756cb4261"; // แทนที่ด้วย userId จริง
+
 		try {
-			const totalAmount =
-				order.reduce((acc, item) => acc + item.price * item.quantity, 0) * 100;
-
-			// สร้าง QR Code ผ่าน API ของ Omise
-			const response = await axios.post("/api/create_qr_code", {
-				amount: totalAmount,
-				description: "Your order description",
-			});
-
-			console.log("Response from API:", response.data);
-
-			setQRCodeURI(response.data.qrCodeURI);
-		} catch (error: any) {
-			console.error("Error creating QR Code:", error);
-			setErrorMessage(error.response?.data?.error || error.message);
-		} finally {
-			setIsLoading(false);
+			const createdOrder = await createOrder(userId, order);
+			console.log("Order created:", createdOrder);
+			// ทำสิ่งที่ต้องการหลังจากสร้างคำสั่งซื้อเสร็จ
+		} catch (error) {
+			console.error("Failed to create order:", error);
 		}
 	};
 
 	return (
 		<div className="min-h-60 w-[410px] border-4 border-red-600 rounded-3xl fixed right-10 top-28 flex flex-col items-center">
-			<h1 className="text-2xl">Cart</h1>
+			<h1 className=" text-2xl">Cart</h1>
 			<div>
-				{order.map((item, index) => (
-					<div key={index}>
+				{order.map((item: any, index: any) => (
+					<div key={index} className="">
 						<a>{item.name}</a>
 						<button
 							className="btn border hover:bg-blue-400"
@@ -54,32 +40,20 @@ const Cart: React.FC = () => {
 							-
 						</button>
 						&nbsp;
-						<a className="border container">{item.quantity}</a>&nbsp;
-						<a>
+						<a className="border container ">{item.quantity}</a>&nbsp;
+						<a className="">
 							* {item.price} ฿ = {item.price * item.quantity} ฿
 						</a>
+						<button
+							className="btn btn-default btn-xs hover:bg-green-500 fa fa-search"
+							aria-hidden="true"
+						></button>
 					</div>
 				))}
 			</div>
-			{errorMessage && (
-				<div className="text-red-500">
-					<p>{errorMessage}</p>
-				</div>
-			)}
-			{qrCodeURI ? (
-				<div>
-					<h3>Scan to Pay</h3>
-					<img src={qrCodeURI} alt="QR Code" />
-				</div>
-			) : (
-				<button
-					onClick={handleBuy}
-					disabled={isLoading}
-					className="btn bg-sky-500"
-				>
-					{isLoading ? "Processing..." : "Buy Now"}
-				</button>
-			)}
+			<button className="btn bg-sky-500" onClick={handleBuy}>
+				Buy
+			</button>
 		</div>
 	);
 };
