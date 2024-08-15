@@ -1,40 +1,35 @@
-"use client";
 import React, { useState } from "react";
 import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 import Image from "next/image";
 
 const Cart: React.FC = () => {
 	const { order, addToCart, removeFromCart, clearCart } = useCart();
 	const [qrCodeURI, setQRCodeURI] = useState<string | null>(null);
 	const [isLoading, setIsLoading] = useState(false);
+	const [errorMessage, setErrorMessage] = useState<string | null>(null);
 	const router = useRouter();
 
 	const handleBuy = async () => {
 		setIsLoading(true);
+		setErrorMessage(null);
 		try {
 			const totalAmount =
 				order.reduce((acc, item) => acc + item.price * item.quantity, 0) * 100;
 
 			// สร้าง QR Code ผ่าน API ของ Omise
-			const response = await fetch("/api/create_qr_code", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					amount: totalAmount,
-					description: "Your order description",
-				}),
+			const response = await axios.post("/api/create_qr_code", {
+				amount: totalAmount,
+				description: "Your order description",
 			});
 
-			const data = await response.json();
-			setQRCodeURI(data.qrCodeURI);
+			console.log("Response from API:", response.data);
 
-			// ตอนนี้ QR code จะแสดงให้ผู้ใช้สแกนเพื่อทำการชำระเงิน
-			// Webhook จะทำหน้าที่ตรวจสอบการชำระเงินและสร้างคำสั่งซื้อใน backend
-		} catch (error) {
+			setQRCodeURI(response.data.qrCodeURI);
+		} catch (error: any) {
 			console.error("Error creating QR Code:", error);
+			setErrorMessage(error.response?.data?.error || error.message);
 		} finally {
 			setIsLoading(false);
 		}
@@ -67,10 +62,15 @@ const Cart: React.FC = () => {
 					</div>
 				))}
 			</div>
+			{errorMessage && (
+				<div className="text-red-500">
+					<p>{errorMessage}</p>
+				</div>
+			)}
 			{qrCodeURI ? (
 				<div>
 					<h3>Scan to Pay</h3>
-					<Image src={qrCodeURI} alt="QR Code" />
+					<Image src={qrCodeURI} alt="QR Code" width={200} height={200} />
 				</div>
 			) : (
 				<button
