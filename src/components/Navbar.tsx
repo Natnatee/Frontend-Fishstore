@@ -3,7 +3,7 @@ import Link from "next/link";
 const Navbar = () => {
 	return (
 		<nav>
-			<ul className="flex justify-evenly bg-blue-600">
+			<ul className="flex justify-evenly bg-lime-400">
 				<li>
 					<Link href="/">Home</Link>
 				</li>
