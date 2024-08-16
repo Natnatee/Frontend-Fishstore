@@ -2,6 +2,7 @@
 
 import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import Loader from "@/components/Loader";
 
 const StatusPaymentContent: React.FC = () => {
 	const searchParams = useSearchParams();
@@ -25,7 +26,7 @@ const StatusPaymentContent: React.FC = () => {
 
 const StatusPayment: React.FC = () => {
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
+		<Suspense fallback={<Loader />}>
 			<StatusPaymentContent />
 		</Suspense>
 	);

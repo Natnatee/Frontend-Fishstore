@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar"; // Import Navbar component
 import axiosInstance from "@/lib/axiosInstance"; // Import axios instance
 import Cart from "@/components/Cart";
 import { CartProvider } from "@/context/CartContext";
+import Loader from "@/components/Loader";
 
 // Define the Product interface
 interface Product {
@@ -16,6 +17,7 @@ interface Product {
 	quantity: number;
 	status: string;
 	id: string;
+	type: string;
 }
 
 // Define the page component
@@ -45,7 +47,7 @@ const BuyFishPage = () => {
 			<Navbar />
 			<Cart />
 			{loading ? (
-				<p>Loading...</p> // Show loading indicator while data is being fetched
+				<Loader /> // Show loading indicator while data is being fetched
 			) : (
 				<ProductGrid products={products} /> // Pass products as props to ProductGrid
 			)}

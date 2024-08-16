@@ -7,9 +7,10 @@ const omise = Omise({
 });
 
 export async function POST(req: NextRequest) {
+///แกะ
   try {
     const { amount, description } = await req.json();
-
+///สร้าง
     // สร้าง PromptPay source
     const source = await omise.sources.create({
       amount,
@@ -24,7 +25,7 @@ export async function POST(req: NextRequest) {
       source: source.id,
       description,
     });
-
+///เช็ค
     if (
       !charge.source ||
       !charge.source.scannable_code ||
@@ -33,7 +34,7 @@ export async function POST(req: NextRequest) {
     ) {
       return NextResponse.json({ error: "QR code image URI is missing" }, { status: 500 });
     }
-
+///ตอบ
     return NextResponse.json({ qrCodeURI: charge.source.scannable_code.image.download_uri }, { status: 200 });
   } catch (error) {
     console.error("Failed to create QR code:", error);

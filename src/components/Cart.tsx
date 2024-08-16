@@ -3,12 +3,16 @@
 import { useCart } from "@/context/CartContext";
 import React from "react";
 import { createOrder } from "./OrderService";
-// ปรับตามตำแหน่งของไฟล์ CartContext
+import Link from "next/link";
 
 const Cart: React.FC = () => {
 	const { order, addToCart, removeFromCart } = useCart(); // ใช้ useCart เพื่อเข้าถึง Context
 
 	const handleBuy = async () => {
+		if (order.length === 0) {
+			return; // ถ้า order ว่าง จะไม่ทำอะไร
+		}
+
 		const userId = "26ff21d0-302b-452a-98f4-fab756cb4261"; // แทนที่ด้วย userId จริง
 
 		try {
@@ -22,7 +26,7 @@ const Cart: React.FC = () => {
 
 	return (
 		<div className="min-h-60 w-[410px] border-4 border-red-600 rounded-3xl fixed right-10 top-28 flex flex-col items-center">
-			<h1 className=" text-2xl">Cart</h1>
+			<h1 className="text-2xl">Cart</h1>
 			<div>
 				{order.map((item: any, index: any) => (
 					<div key={index} className="">
@@ -51,9 +55,13 @@ const Cart: React.FC = () => {
 					</div>
 				))}
 			</div>
-			<button className="btn bg-sky-500" onClick={handleBuy}>
+			<Link
+				href={order.length > 0 ? "/payments" : "#"}
+				className="btn bg-sky-500"
+				onClick={handleBuy}
+			>
 				Buy
-			</button>
+			</Link>
 		</div>
 	);
 };
