@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Payments: React.FC = () => {
-	const [qrCodeURI, setQrCodeURI] = useState<String | null>(null);
+	const [qrCodeURI, setQrCodeURI] = useState<string | null>(null);
 
 	useEffect(() => {
 		const fetchQrCode = async () => {
