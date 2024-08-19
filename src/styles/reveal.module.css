@@ -1,0 +1,45 @@
+.backgroundContainer {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  background-image: url('/Images/ไม้น้ำ.jpg'); /* Background 1 */
+  display: flex; /* Added for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  color: white; /* White text */
+  font-size: 3rem; /* Adjust as needed */
+  font-weight: bold; /* Make the text bold */
+  text-align: center; /* Ensure the text is centered */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/Images/ปลาสวยงามในตู้.jpg');
+  background-size: cover;
+  background-position: center;
+  clip-path: circle(0% at 0 0);
+  transition: clip-path 0s ease;
+  display: flex;
+justify-content: center;
+align-items: center;
+color: rgb(255, 255, 255);
+font-size: 3rem;
+font-weight: bold;
+  text-align: center;
+  transition: clip-path 0.2s ease;
+  -webkit-transition: clip-path 0s ease;
+  -moz-transition: clip-path 0s ease;
+  -ms-transition: clip-path 0s ease;
+  -o-transition: clip-path 0s ease;
+}
+
+.backgroundContainer:hover .overlay {
+  clip-path: circle(10% at var(--x) var(--y));
+}

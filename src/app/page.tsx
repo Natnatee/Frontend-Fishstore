@@ -3,6 +3,7 @@ export const metadata = {
 	description: "This is the home page description",
 };
 
+import BackgroundReveal from "@/components/home/ฺBackgroundReveal";
 import Navbar from "@/components/Navbar";
 import React from "react";
 
@@ -10,23 +11,10 @@ const Home = () => {
 	return (
 		<div>
 			<Navbar />
+			<BackgroundReveal />
 			<div className="px-5">
-				{/* Showcase */}
-				<header
-					className="w-full h-[400px] bg-cover bg-center flex flex-col items-center text-center justify-end pb-12 mb-5 text-4xl text-white
-        bg-[url('https://i.ytimg.com/vi/VlCRGTMyC0g/maxresdefault.jpg')]"
-				>
-					ร้านปลาสวยงาม
-					<a
-						href="#"
-						className="btn bg-black text-white font-bold py-2 px-5 mt-5 hover:opacity-90"
-					>
-						Shop Now
-					</a>
-				</header>
-
 				{/* Home cards 1 */}
-				<section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+				<section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10 pt-5">
 					<div>
 						<img
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZRwoKbBcgD6Wif8cF2XCaBCXj5GGtw4vpHw&s"

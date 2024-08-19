@@ -2,16 +2,10 @@ import Link from "next/link";
 
 const Navbar = () => {
 	return (
-		<nav>
-			<ul className="flex justify-evenly bg-blue-500">
+		<nav className="fixed top-0 left-0 w-full bg-blue-500 z-50">
+			<ul className="flex justify-evenly h-10 items-center">
 				<li>
 					<Link href="/">Home</Link>
-				</li>
-				<li>
-					<Link href="/about">About</Link>
-				</li>
-				<li>
-					<Link href="/profile">Profile</Link>
 				</li>
 				<li>
 					<Link href="/login">login</Link>
