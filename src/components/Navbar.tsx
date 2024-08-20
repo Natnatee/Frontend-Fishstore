@@ -18,12 +18,15 @@ const Navbar = () => {
 					</li>
 				</ul>
 				<ul className="flex gap-7 h-10 items-center">
+					<li>
+						<Link href="/buy_fish">Buy</Link>
+					</li>
 					<li className="relative">
 						<button
 							onClick={toggleDropdown}
 							className="flex items-center focus:outline-none"
 						>
-							Buy Fish
+							Menu
 							<svg
 								className={`ml-2 w-4 h-4 transition-transform transform ${
 									isDropdownOpen ? "rotate-90" : "rotate-0"
