@@ -7,10 +7,10 @@ import React from "react";
 
 const Profile = () => {
 	return (
-		<>
+		<div>
 			<Navbar />
-			<h3 className=" text-black">I am Batman ?</h3>
-		</>
+			<div className=" mt-10">I am Iron man</div>
+		</div>
 	);
 };
 
