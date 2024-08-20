@@ -6,6 +6,7 @@ export const metadata = {
 import BackgroundReveal from "@/components/home/ฺBackgroundReveal";
 import Navbar from "@/components/Navbar";
 import React from "react";
+import Link from "next/link";
 
 const Home = () => {
 	return (
@@ -23,12 +24,12 @@ const Home = () => {
 						/>
 						<h3 className="mb-1 text">กุ้งแคระ เรดบี ราคา 20 บาท !!</h3>
 						<p></p>
-						<a
-							href="#"
+						<Link
+							href="buy_fish"
 							className="uppercase text-blue-600 font-bold pt-3 inline-block"
 						>
 							Shop Now
-						</a>
+						</Link>
 					</div>
 					<div>
 						<img
@@ -37,12 +38,12 @@ const Home = () => {
 							className="h-40 w-72 object-cover object-center mb-5"
 						/>
 						<h3 className="mb-1">กุ้งแคระไฟร์เรด 10 บาท</h3>
-						<a
-							href="#"
+						<Link
+							href="buy_fish"
 							className="uppercase text-blue-600 font-bold pt-3 inline-block"
 						>
 							Shop Now
-						</a>
+						</Link>
 					</div>
 					<div>
 						<img
@@ -51,12 +52,12 @@ const Home = () => {
 							className="h-40 w-72 object-cover object-center mb-5"
 						/>
 						<h3 className="mb-1">Java fern 150 บาท</h3>
-						<a
-							href="#"
+						<Link
+							href="buy_fish"
 							className="uppercase text-blue-600 font-bold pt-3 inline-block"
 						>
 							Shop Now
-						</a>
+						</Link>
 					</div>
 					<div>
 						<img
@@ -65,12 +66,12 @@ const Home = () => {
 							className="h-40 w-72 object-cover object-center mb-5"
 						/>
 						<h3 className="mb-1">อาหารปลา</h3>
-						<a
-							href="#"
+						<Link
+							href="buy_fish"
 							className="uppercase text-blue-600 font-bold pt-3 inline-block"
 						>
 							Shop Now
-						</a>
+						</Link>
 					</div>
 				</section>
 
@@ -78,12 +79,12 @@ const Home = () => {
 				<section className="w-full h-[500px] bg-cover bg-center mb-5 bg-[url('https://i.ytimg.com/vi/x3fNDn2jS9s/maxresdefault.jpg')]">
 					<div className="content w-2/5 py-12 pl-7">
 						<h2 className="mb-5">ซื้อ-ขาย ง่ายด้วย ScanQRcode</h2>
-						<a
-							href="#"
-							className="btn bg-black text-white font-bold py-2 px-5 hover:opacity-90"
+						<Link
+							href="buy_fish"
+							className="uppercase text-blue-600 font-bold pt-3 inline-block"
 						>
 							Shop Now
-						</a>
+						</Link>
 					</div>
 				</section>
 
@@ -96,12 +97,12 @@ const Home = () => {
 							className="h-40 w-72 object-cover object-center mb-5"
 						/>
 						<h3 className="mb-1">ตู้ปลา 10นิ้ว 150 บาท</h3>
-						<a
-							href="#"
+						<Link
+							href="buy_fish"
 							className="uppercase text-blue-600 font-bold pt-3 inline-block"
 						>
 							Shop Now
-						</a>
+						</Link>
 					</div>
 					<div>
 						<img
@@ -110,12 +111,12 @@ const Home = () => {
 							className="h-40 w-72 object-cover object-center mb-5"
 						/>
 						<h3 className="mb-1">ของตกแต่งตู้ปลา 30-150 บาท</h3>
-						<a
-							href="#"
+						<Link
+							href="buy_fish"
 							className="uppercase text-blue-600 font-bold pt-3 inline-block"
 						>
 							Shop Now
-						</a>
+						</Link>
 					</div>
 					<div>
 						<img
@@ -124,12 +125,12 @@ const Home = () => {
 							className="h-40 w-72 object-cover object-center mb-5"
 						/>
 						<h3 className="mb-1">ปลามาลาวี 10บาท</h3>
-						<a
-							href="#"
+						<Link
+							href="buy_fish"
 							className="uppercase text-blue-600 font-bold pt-3 inline-block"
 						>
 							Shop Now
-						</a>
+						</Link>
 					</div>
 					<div>
 						<img
@@ -138,12 +139,12 @@ const Home = () => {
 							className="h-40 w-72 object-cover object-center mb-5"
 						/>
 						<h3 className="mb-1">ปลาหมอเทวดา 15 บาท</h3>
-						<a
-							href="#"
+						<Link
+							href="buy_fish"
 							className="uppercase text-blue-600 font-bold pt-3 inline-block"
 						>
 							Shop Now
-						</a>
+						</Link>
 					</div>
 				</section>
 			</div>

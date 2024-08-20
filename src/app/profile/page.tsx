@@ -1,17 +1,17 @@
 export const metadata = {
-  title: 'คนรักปลาสวยงาม',
+	title: "คนรักปลาสวยงาม",
 };
 
-import Navbar from '@/components/Navbar';
-import React from 'react';
+import Navbar from "@/components/Navbar";
+import React from "react";
 
 const Profile = () => {
-  return (
-    <>
-      <Navbar />
-      <a>I am Batman ?</a>
-    </>
-  );
+	return (
+		<>
+			<Navbar />
+			<h3 className=" text-black">I am Batman ?</h3>
+		</>
+	);
 };
 
 export default Profile;
