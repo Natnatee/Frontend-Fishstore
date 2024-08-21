@@ -5,7 +5,6 @@ import ProductGrid from "@/app/buy_fish/components/productGrid"; // Import the P
 import Navbar from "@/components/Navbar"; // Import Navbar component
 import axiosInstance from "@/lib/axiosInstance"; // Import axios instance
 import Cart from "@/components/Cart";
-import { CartProvider } from "@/context/CartContext";
 import Loader from "@/components/Loader";
 
 // Define the Product interface
@@ -43,7 +42,7 @@ const BuyFishPage = () => {
 	}, []); // Empty dependency array means this effect runs once on mount
 
 	return (
-		<CartProvider>
+		<>
 			<Navbar />
 			<div className="bg-gradient-to-r from-blue-200 to-blue-800">
 				<Cart />
@@ -53,7 +52,7 @@ const BuyFishPage = () => {
 					<ProductGrid products={products} /> // Pass products as props to ProductGrid
 				)}
 			</div>
-		</CartProvider>
+		</>
 	);
 };
 

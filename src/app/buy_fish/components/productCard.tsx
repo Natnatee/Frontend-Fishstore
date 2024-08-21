@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFish } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "@/context/CartContext";
+import Link from "next/link";
 // ปรับตามตำแหน่งของไฟล์ CartContext
 
 interface ProductCardProps {
@@ -95,10 +96,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
 										<FontAwesomeIcon icon={faFish} className=" h-5" />{" "}
 									</span>
 								</button>
-								<button className="btn btn-default btn-xs hover:bg-cyan-300">
+								<Link
+									href="/productInfo"
+									className="btn btn-default btn-xs hover:bg-cyan-300"
+								>
 									Detail{" "}
 									<span className="fa fa-search" aria-hidden="true"></span>
-								</button>
+								</Link>
 							</div>
 						</div>
 					) : status === "pending" ? (

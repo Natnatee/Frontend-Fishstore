@@ -1,12 +1,13 @@
 "use client";
 
 import { useCart } from "@/context/CartContext";
-import React from "react";
+import React, { useState, useEffect, use } from "react";
 import { createOrder } from "./OrderService";
 import Link from "next/link";
 
 const Cart: React.FC = () => {
 	const { order, addToCart, removeFromCart } = useCart(); // ใช้ useCart เพื่อเข้าถึง Context
+	const [sum, setsum] = useState(0);
 
 	const handleBuy = async () => {
 		if (order.length === 0) {
@@ -23,6 +24,14 @@ const Cart: React.FC = () => {
 			console.error("Failed to create order:", error);
 		}
 	};
+
+	useEffect(() => {
+		let total: number = 0;
+		order.forEach((item) => {
+			total += item.price * item.quantity; // ใช้ item.price และคูณกับจำนวนที่สั่งซื้อ
+		});
+		setsum(total); // อัปเดตผลรวมใน state
+	}, [order]);
 
 	return (
 		<div className="min-h-60 w-[410px] border-4 border-red-600 rounded-3xl fixed right-10 top-28 flex flex-col items-center bg-white">
@@ -55,13 +64,18 @@ const Cart: React.FC = () => {
 					</div>
 				))}
 			</div>
-			<Link
-				href={order.length > 0 ? "/payments" : "#"}
-				className="btn bg-sky-500"
-				onClick={handleBuy}
-			>
-				Buy
-			</Link>
+			<div className="flex">
+				<div className="bg-orange-400 flex w-20 items-center justify-center rounded-lg">
+					<a>total = {sum} </a>
+				</div>
+				<Link
+					href={order.length > 0 ? "/payments" : "#"}
+					className="btn bg-sky-500"
+					onClick={handleBuy}
+				>
+					Buy
+				</Link>
+			</div>
 		</div>
 	);
 };

@@ -1,10 +1,12 @@
+import Cart from "@/components/Cart";
 import Navbar from "@/components/Navbar";
 import React from "react";
 
 function page() {
 	return (
-		<div>
+		<>
 			<Navbar />
+			<Cart />
 			<section className="bg-gray-500  flex flex-col items-center mt-10">
 				<div className="bg-red-400 h-80 text-center w-[980px] flex">
 					<div className="bg-slate-300 w-1/3">Image</div>
@@ -14,7 +16,7 @@ function page() {
 					Body
 				</div>
 			</section>
-		</div>
+		</>
 	);
 }
 
