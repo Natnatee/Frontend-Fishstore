@@ -25,7 +25,7 @@ const Cart: React.FC = () => {
 	};
 
 	return (
-		<div className="min-h-60 w-[410px] border-4 border-red-600 rounded-3xl fixed right-10 top-28 flex flex-col items-center">
+		<div className="min-h-60 w-[410px] border-4 border-red-600 rounded-3xl fixed right-10 top-28 flex flex-col items-center bg-white">
 			<h1 className="text-2xl">Cart</h1>
 			<div>
 				{order.map((item: any, index: any) => (

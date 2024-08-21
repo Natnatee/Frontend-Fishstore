@@ -26,10 +26,10 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
 	return (
 		<div
 			id="container"
-			className=" w-[980px] mx-auto mt-12 mb-2 text-left rounded-lg shadow-md"
+			className=" w-[980px] mx-auto mt-10 mb-2 text-left rounded-lg "
 		>
-			<div id="content" className="min-h-[400px] inline-block">
-				<div className="product-grid grid grid-cols-1 3xl:grid-cols-3 gap-4 w-full text-red-500 bg-[#eeeded]">
+			<div id="content" className="min-h-[400px] inline-block ">
+				<div className="product-grid grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-3 gap-4 w-full text-red-500 bg-[#eeeded]">
 					{/* Map through products and render a ProductCard for each */}
 					{products.map((product) => (
 						<ProductCard

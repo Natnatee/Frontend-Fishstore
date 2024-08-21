@@ -45,12 +45,14 @@ const BuyFishPage = () => {
 	return (
 		<CartProvider>
 			<Navbar />
-			<Cart />
-			{loading ? (
-				<Loader /> // Show loading indicator while data is being fetched
-			) : (
-				<ProductGrid products={products} /> // Pass products as props to ProductGrid
-			)}
+			<div className="bg-gradient-to-r from-blue-200 to-blue-800">
+				<Cart />
+				{loading ? (
+					<Loader /> // Show loading indicator while data is being fetched
+				) : (
+					<ProductGrid products={products} /> // Pass products as props to ProductGrid
+				)}
+			</div>
 		</CartProvider>
 	);
 };
