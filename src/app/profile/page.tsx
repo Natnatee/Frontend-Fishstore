@@ -2,6 +2,7 @@ export const metadata = {
 	title: "คนรักปลาสวยงาม",
 };
 
+import My3DComponent from "@/components/My3DComponent";
 import Navbar from "@/components/Navbar";
 import React from "react";
 
@@ -9,7 +10,7 @@ const Profile = () => {
 	return (
 		<div>
 			<Navbar />
-			<div className=" mt-10">I am Iron man</div>
+			<My3DComponent />
 		</div>
 	);
 };

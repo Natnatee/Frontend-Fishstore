@@ -6,6 +6,7 @@ import "../styles/globals.css";
 
 import React from "react";
 import { CartProvider } from "@/context/CartContext";
+import PrelineScript from "@/components/PrelineScript";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
 			<body className={inter.className}>
 				<CartProvider>{children}</CartProvider>
 			</body>
+			<PrelineScript />
 		</html>
 	);
 }
